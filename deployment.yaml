@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-app
+  labels:
+    app: nodejs-app
+spec:
+  replicas: 3  # Number of pod replicas
+  selector:
+    matchLabels:
+      app: nodejs-app
+  template:
+    metadata:
+      labels:
+        app: nodejs-app
+    spec:
+      containers:
+      - name: nodejs-container
+        image: your-dockerhub-username/nodejs-app:latest  # Replace with your Docker image
+        ports:
+        - containerPort: 8000  # Port your Node.js app listens on
+        env:
+        - name: NODE_ENV
+          value: "production"  # Set environment variables if needed
