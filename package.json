@@ -1,0 +1,66 @@
+{
+    "name": "esn-be",
+    "version": "1.0.0",
+    "description": "This project is for the practicum team, working on medical image data processing",
+    "main": "index.js",
+    "scripts": {
+        "start": "npm run build && node dist/index",
+        "deploy": "npm run migrate && npm run seed",
+        "build": "babel src --out-dir dist",
+        "dev": "npm run build && nodemon dist/index.js",
+        "migrate": "sequelize db:migrate",
+        "undo:last:migration": "sequelize db:migrate:undo",
+        "undo:migrations": "sequelize db:migrate:undo:all",
+        "seed": "sequelize db:seed:all",
+        "test": "cross-env NODE_ENV=test npm run migrate && jest --coverage --detectOpenHandles",
+        "test:dev": "jest --watch"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/RBC-Image-Processing/RBC_Node_Backend"
+    },
+    "keywords": [
+        "CMU",
+        "CMU-Africa",
+        "RBC-MIDAP"
+    ],
+    "author": "RW4",
+    "license": "ISC",
+    "dependencies": {
+        "@babel/cli": "^7.16.7",
+        "@babel/core": "^7.16.7",
+        "@babel/node": "^7.16.7",
+        "@babel/plugin-transform-runtime": "^7.16.7",
+        "@babel/preset-env": "^7.16.7",
+        "@babel/register": "^7.16.7",
+        "@babel/runtime": "^7.16.7",
+        "axios": "^1.6.7",
+        "bcrypt": "^5.1.1",
+        "cors": "^2.8.5",
+        "cross-env": "^7.0.3",
+        "dotenv": "^10.0.0",
+        "express": "^4.18.2",
+        "file-type": "^19.0.0",
+        "form-data": "^4.0.0",
+        "helmet": "^7.1.0",
+        "jest": "^29.7.0",
+        "jsonwebtoken": "^9.0.2",
+        "lorem-ipsum": "^2.0.8",
+        "multer": "^1.4.5-lts.1",
+        "nodemailer": "^6.9.15",
+        "nodemon": "^3.0.2",
+        "passport": "^0.7.0",
+        "passport-jwt": "^4.0.1",
+        "peer": "^1.0.2",
+        "pg": "^8.11.3",
+        "pg-hstore": "^2.3.4",
+        "sequelize": "^6.35.2",
+        "sequelize-cli": "^6.6.2",
+        "supertest": "^6.3.4",
+        "swagger-ui-express": "^5.0.0"
+    },
+    "bugs": {
+        "url": "https://github.com/cmusv-fse2/fse-rw-s24-rw4/issues"
+    },
+    "homepage": "https://github.com/cmusv-fse2/fse-rw-s24-rw4#readme"
+}
